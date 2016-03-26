@@ -1,0 +1,12 @@
+alias ls="ls -h --color=auto"
+alias make-favicon="convert -colors 256 -resize 16x16"
+
+alias sha1="openssl dgst -sha1"
+alias sha256="openssl dgst -sha256"
+
+alias grep="grep --color=auto"
+
+alias E="SUDO_EDITOR=\"emacsclient -c -a emacs\" sudoedit"
+alias e="emacsclient -t -a emacs"
+
+alias myIP="ip a | grep global"

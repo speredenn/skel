@@ -1,18 +1,58 @@
-[user]
-	name = "Jean-Baptiste Carré (speredenn)"
-	email = "jbc@0x1d.org"
-[color]
-	diff = auto
-[alias]
-	o = checkout
-	c = commit
-	s = status
-	f = fetch
-	l = pull
-        p = push
-        ai = annex info
-        as = annex status
-        aa = annex add
+# Main sources of inspiration:
+# http://nuclearsquid.com/writings/git-tricks-tips-workflows/
+# http://stackoverflow.com/questions/5519007/how-do-i-make-git-merges-default-be-no-ff-no-commit
 
+[user]
+        email = jbc@0x1d.org
+        name = Jean-Baptiste Carré (speredenn)
+[credential]
+        helper = cache --timeout=3600
+[alias]
+        co = checkout
+	br = branch
+        ci = commit
+        st = status
+        lp = log -p
+        diffall = diff HEAD
+        diffstaged = diff --staged
+        # Source: http://coderwall.com/p/euwpig
+        graph = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        # git graph -p to see the diffs
+        filelog = log --oneline --no-merges
+        unstage = reset HEAD --
+        last = log -1 HEAD
+        date = log -1 HEAD --date="iso" --pretty="%ad"
+        sha = describe --always --long --dirty
+[color]
+        ui = auto
+        diff = auto
+        status = auto
+        branch = auto
+        interactive = auto
+[core]
+        whitespace = trailing-space,space-before-tab
+        editor = nano
+[diff]
+        mnemonicprefix = true
+        renames = copies
+[guitool "Rebase onto..."]
+        cmd = git rebase
+        revprompt = yes
+[guitool "Rebase/Continue"]
+        cmd = git rebase --continue
+[guitool "Rebase/Skip"]
+        cmd = git rebase --skip
+[guitool "Rebase/Abort"]
+        cmd = git rebase --abort
+[guitool "Pull with Rebase"]
+        cmd = git pull --rebase
+[rerere]
+        enabled = true
+[merge]
+        stat = true
+[branch]
+        autosetupmerge = true
 [push]
-	default = simple
+        default = tracking
+[annex]
+        backends = SHA512
