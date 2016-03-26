@@ -1,0 +1,18 @@
+[user]
+	name = "Jean-Baptiste Carré (speredenn)"
+	email = "jbc@0x1d.org"
+[color]
+	diff = auto
+[alias]
+	o = checkout
+	c = commit
+	s = status
+	f = fetch
+	l = pull
+        p = push
+        ai = annex info
+        as = annex status
+        aa = annex add
+
+[push]
+	default = simple
